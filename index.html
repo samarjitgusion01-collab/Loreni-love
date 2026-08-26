@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+<title>For Loreni ❤️</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,500&family=Sora:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- Ambient background layers -->
+  <div class="bg-scene" aria-hidden="true">
+    <div class="stars"></div>
+    <div class="glow glow-1"></div>
+    <div class="glow glow-2"></div>
+  </div>
+
+  <!-- Floating hearts layer (triggered by JS) -->
+  <div id="heartLayer" class="heart-layer" aria-hidden="true"></div>
+  <!-- Confetti layer -->
+  <canvas id="confettiCanvas" class="confetti-canvas" aria-hidden="true"></canvas>
+
+  <main id="app" class="app">
+    <!-- scenes are rendered here by script.js -->
+  </main>
+
+  <!-- reusable cat template, cloned by JS -->
+  <template id="catTemplate">
+    <svg class="cat" viewBox="0 0 200 180" xmlns="http://www.w3.org/2000/svg">
+      <g class="cat-body">
+        <path class="cat-tail" d="M170 140 C 200 130, 205 90, 178 78" fill="none" stroke-width="10" stroke-linecap="round"/>
+        <ellipse class="cat-fill" cx="100" cy="120" rx="58" ry="42"/>
+        <circle class="cat-fill" cx="146" cy="70" r="34"/>
+        <path class="cat-fill" d="M120 44 L128 14 L146 42 Z"/>
+        <path class="cat-fill" d="M172 44 L164 14 L146 42 Z"/>
+        <path class="cat-inner-ear" d="M126 40 L131 22 L142 40 Z"/>
+        <path class="cat-inner-ear" d="M166 40 L161 22 L150 40 Z"/>
+        <g class="cat-face">
+          <ellipse class="cat-eye" cx="135" cy="68" rx="4.5" ry="6"/>
+          <ellipse class="cat-eye" cx="157" cy="68" rx="4.5" ry="6"/>
+          <path class="cat-mouth" d="M140 82 Q146 88 152 82" fill="none" stroke-width="2.5" stroke-linecap="round"/>
+          <path class="cat-nose" d="M144 78 L148 78 L146 81 Z"/>
+          <g class="cat-whiskers">
+            <line x1="112" y1="72" x2="132" y2="70"/>
+            <line x1="112" y1="80" x2="132" y2="78"/>
+            <line x1="160" y1="70" x2="180" y2="72"/>
+            <line x1="160" y1="78" x2="180" y2="80"/>
+          </g>
+        </g>
+        <ellipse class="cat-paw" cx="72" cy="158" rx="14" ry="10"/>
+        <ellipse class="cat-paw" cx="118" cy="160" rx="14" ry="10"/>
+      </g>
+    </svg>
+  </template>
+
+  <script src="script.js"></script>
+</body>
+</html>
