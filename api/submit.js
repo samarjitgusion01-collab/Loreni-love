@@ -41,6 +41,8 @@ function buildMessage(data) {
   lines.push("");
   lines.push(`<b>Age:</b>\n${clean(data.age)}`);
   lines.push("");
+  lines.push(`<b>Self rating (out of 10):</b>\n${clean(data.selfRating) || "—"}`);
+  lines.push("");
   lines.push(`<b>Favorite memory:</b>\n${clean(data.memory, 800) || "—"}`);
 
   if (data.choices && typeof data.choices === "object") {
@@ -52,7 +54,7 @@ function buildMessage(data) {
     lines.push(`• Do you love me: ${clean(c.doYouLoveMe) || "—"}`);
     lines.push(`• "No" attempts before yes: ${clean(c.noAttempts)}`);
     lines.push(`• Stay with me: ${clean(c.stayWithMe) || "—"}`);
-    lines.push(`• Cat pets: ${clean(c.petTaps)}`);
+    lines.push(`• Hearts sent: ${clean(c.heartTaps)}`);
     lines.push(`• Final answer: ${clean(c.finalAnswer) || "—"}`);
   }
 
@@ -93,6 +95,7 @@ module.exports = async function handler(req, res) {
     dislikes: body.dislikes,
     birthDate: body.birthDate,
     age: body.age,
+    selfRating: body.selfRating,
     memory: body.memory,
     choices: body.choices,
   };
