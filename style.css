@@ -337,6 +337,38 @@ button {
 .option-card:hover { border-color: var(--accent); transform: translateX(2px); }
 .option-card .emoji { margin-right: 10px; }
 
+/* rating grid (1-10 self rating) */
+.rating-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 10px;
+  width: 100%;
+  margin-top: 20px;
+}
+.rating-btn {
+  aspect-ratio: 1;
+  border-radius: 14px;
+  border: 1.5px solid var(--line);
+  background: var(--stage-card);
+  color: var(--ink);
+  font-family: var(--font-display);
+  font-size: 19px;
+  font-weight: 600;
+  transition: transform 0.15s ease, border-color 0.15s ease, opacity 0.2s ease;
+}
+.rating-btn:hover { border-color: var(--accent); transform: translateY(-2px); }
+.rating-btn:active { transform: scale(0.94); }
+.rating-btn.ten {
+  background: linear-gradient(135deg, var(--accent), var(--gold));
+  color: var(--stage);
+  border-color: transparent;
+  grid-column: span 5;
+  aspect-ratio: auto;
+  padding: 13px 0;
+  font-size: 16px;
+}
+.rating-btn:disabled { opacity: 0.5; }
+
 /* ============================================================
    ENVELOPE / LETTER
    ============================================================ */
@@ -464,7 +496,7 @@ button {
   position: fixed;
   inset: 0;
   pointer-events: none;
-  z-index: 40;
+  z-index: 3;
   overflow: hidden;
 }
 .floating-heart {
@@ -473,6 +505,11 @@ button {
   font-size: 22px;
   animation: floatUp 2.6s ease-in forwards;
   opacity: 0.95;
+  z-index: 45;
+}
+.floating-heart.ambient {
+  z-index: 3;
+  filter: blur(0.2px);
 }
 @keyframes floatUp {
   0% { transform: translateY(0) translateX(0) rotate(0deg); opacity: 1; }
@@ -608,3 +645,4 @@ button {
   .scene { max-width: 100%; }
   .btn { padding: 14px 24px; font-size: 14.5px; }
 }
+
